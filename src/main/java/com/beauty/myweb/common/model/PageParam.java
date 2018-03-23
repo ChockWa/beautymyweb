@@ -8,7 +8,7 @@ public class PageParam {
 	
 	private static final int DEFAULT_NO = 1;//默认第一页
 	
-	private static final int DEFAULT_SIZE = 20;//默认每页20条
+	private static final int DEFAULT_SIZE = 10;//默认每页20条
 
 	private Integer pageNo = DEFAULT_NO;//页码
 	

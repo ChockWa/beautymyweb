@@ -23,9 +23,9 @@ public class SourceService {
     @Autowired
     private SourcePicMapper sourcePicMapper;
 
-    public PageInfo<Source> getSourcesPage(PageParam pageParam){
+    public PageInfo<Source> getSourcesPage(Source source, PageParam pageParam){
         PageHelper.startPage(pageParam.getPageNo(),pageParam.getPageSize());
-        Page<Source> page = sourceMapper.getSourcesPage();
+        Page<Source> page = sourceMapper.getSourcesPage(source);
         PageInfo<Source> pageInfo = new PageInfo<>(page);
         return pageInfo;
     }

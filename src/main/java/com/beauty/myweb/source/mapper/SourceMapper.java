@@ -18,7 +18,7 @@ public interface SourceMapper extends BaseMapper<Source>{
 
     int updateByPrimaryKey(Source record);
 
-    Page<Source> getSourcesPage();
+    Page<Source> getSourcesPage(Source source);
 
     Source getSourceBySourceNo(String sourceNo);
 }

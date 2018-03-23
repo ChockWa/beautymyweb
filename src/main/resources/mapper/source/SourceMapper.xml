@@ -196,11 +196,26 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="getSourcesPage" resultMap="BaseResultMap">
+  <select id="getSourcesPage" parameterType="com.beauty.myweb.source.model.Source" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from sys_source
     where status = 1
+    <if test="type != null and type != ''">
+      and type = #{type}
+    </if>
+    <if test="category != null and category != ''">
+      and category = #{category}
+    </if>
+    <if test="sourceName != null and sourceName != ''">
+      and source_name = #{sourceName}
+    </if>
+    <if test="person != null and person != ''">
+      and person = #{person}
+    </if>
+    <if test="code != null and code != ''">
+      and code = #{person}
+    </if>
     order by id desc
   </select>
   <select id="getSourceBySourceNo" resultType="com.beauty.myweb.source.model.Source">
