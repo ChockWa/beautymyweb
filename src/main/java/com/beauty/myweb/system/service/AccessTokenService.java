@@ -2,6 +2,7 @@ package com.beauty.myweb.system.service;
 
 import com.beauty.myweb.core.utils.BeanUtils;
 import com.beauty.myweb.core.utils.UuidUtil;
+import com.beauty.myweb.user.model.User;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,11 +81,11 @@ public class AccessTokenService {
      * @param accessToken
      * @return
      */
-//    public User getUserByToken(String accessToken){
-//        if(StringUtils.isBlank(accessToken)){
-//            return null;
-//        }
-//
-//        return accessTokenMapper.getUserByAccessToken(accessToken);
-//    }
+    public User getUserByToken(String accessToken){
+        if(StringUtils.isBlank(accessToken)){
+            return null;
+        }
+
+        return accessTokenMapper.getUserByAccessToken(accessToken);
+    }
 }

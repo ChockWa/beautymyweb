@@ -1,13 +1,12 @@
 package com.beauty.myweb.user.mapper;
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.beauty.myweb.user.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User>{
     int deleteByPrimaryKey(String id);
-
-    int insert(User record);
 
     int insertSelective(User record);
 
@@ -16,4 +15,10 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    int getCount();
+
+    User getByName(String userName);
+
+    User getByEmail(String email);
 }

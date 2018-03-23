@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beauty.myweb.source.mapper.SourceMapper">
+  <resultMap id="BaseResultMap" type="com.beauty.myweb.source.model.Source">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="source_no" jdbcType="VARCHAR" property="sourceNo" />
+    <result column="source_name" jdbcType="VARCHAR" property="sourceName" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="category" jdbcType="BIGINT" property="category" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="space" jdbcType="VARCHAR" property="space" />
+    <result column="person" jdbcType="VARCHAR" property="person" />
+    <result column="main_pic" jdbcType="VARCHAR" property="mainPic" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="down_url" jdbcType="VARCHAR" property="downUrl" />
+    <result column="down_code" jdbcType="VARCHAR" property="downCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, source_no, source_name, type, category, code, description, space, person, main_pic, 
+    status, down_url, down_code, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_source
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_source
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.beauty.myweb.source.model.Source">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_source (source_no, source_name, type,
+      category, code, description, 
+      space, person, main_pic, 
+      status, down_url, down_code, 
+      create_time)
+    values (#{sourceNo,jdbcType=VARCHAR}, #{sourceName,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{category,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{space,jdbcType=VARCHAR}, #{person,jdbcType=VARCHAR}, #{mainPic,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{downUrl,jdbcType=VARCHAR}, #{downCode,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.beauty.myweb.source.model.Source">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sys_source
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sourceNo != null">
+        source_no,
+      </if>
+      <if test="sourceName != null">
+        source_name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="space != null">
+        space,
+      </if>
+      <if test="person != null">
+        person,
+      </if>
+      <if test="mainPic != null">
+        main_pic,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="downUrl != null">
+        down_url,
+      </if>
+      <if test="downCode != null">
+        down_code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sourceNo != null">
+        #{sourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceName != null">
+        #{sourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="space != null">
+        #{space,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPic != null">
+        #{mainPic,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="downUrl != null">
+        #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="downCode != null">
+        #{downCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.beauty.myweb.source.model.Source">
+    update sys_source
+    <set>
+      <if test="sourceNo != null">
+        source_no = #{sourceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceName != null">
+        source_name = #{sourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="space != null">
+        space = #{space,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+        person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPic != null">
+        main_pic = #{mainPic,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="downUrl != null">
+        down_url = #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="downCode != null">
+        down_code = #{downCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.beauty.myweb.source.model.Source">
+    update sys_source
+    set source_no = #{sourceNo,jdbcType=VARCHAR},
+      source_name = #{sourceName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      category = #{category,jdbcType=BIGINT},
+      code = #{code,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      space = #{space,jdbcType=VARCHAR},
+      person = #{person,jdbcType=VARCHAR},
+      main_pic = #{mainPic,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      down_url = #{downUrl,jdbcType=VARCHAR},
+      down_code = #{downCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getSourcesPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_source
+    where status = 1
+  </select>
+</mapper>

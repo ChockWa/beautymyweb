@@ -9,7 +9,7 @@ import java.util.Date;
  * @author 
  */
 @TableName("sys_user")
-public class User implements Serializable {
+public class User {
     /**
      * 用户id
      */

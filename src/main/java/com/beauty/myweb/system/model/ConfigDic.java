@@ -8,6 +8,9 @@ public class ConfigDic {
     // 自增id
     private Long id;
 
+    // 字典类型
+    private String dicType;
+
     // 字典类型名称
     private String dicName;
 
@@ -25,6 +28,14 @@ public class ConfigDic {
 
     // 状态1-正常
     private Integer status;
+
+    public String getDicType() {
+        return dicType;
+    }
+
+    public void setDicType(String dicType) {
+        this.dicType = dicType;
+    }
 
     public Long getId() {
         return id;
