@@ -16,15 +16,19 @@ import java.util.Properties;
 @MapperScan("com.hdh.redpacket.*.mapper*")
 public class MybatisConfig {
 
-      @Bean
-      public PageHelper pageHelper(){
-           PageHelper pageHelper = new PageHelper();
-           Properties properties = new Properties();
-           properties.setProperty("offsetAsPageNum","true");
-           properties.setProperty("rowBoundsWithCount","true");
-           properties.setProperty("reasonable","true");
-           properties.setProperty("dialect","mysql");    //配置mysql数据库的方言
-           pageHelper.setProperties(properties);
-           return pageHelper;
-      }
+    /**
+     * 分页配置
+     * @return
+     */
+    @Bean
+    public PageHelper pageHelper(){
+        PageHelper pageHelper = new PageHelper();
+        Properties properties = new Properties();
+        properties.setProperty("offsetAsPageNum","true");
+        properties.setProperty("rowBoundsWithCount","true");
+        properties.setProperty("reasonable","true");
+        properties.setProperty("dialect","mysql");    //配置mysql数据库的方言
+        pageHelper.setProperties(properties);
+        return pageHelper;
+    }
 }
