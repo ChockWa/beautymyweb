@@ -5,6 +5,7 @@ import com.beauty.myweb.common.model.PageParam;
 import com.beauty.myweb.common.service.UserInfo;
 import com.beauty.myweb.core.utils.BeanUtils;
 import com.beauty.myweb.source.dto.SourceDetailDto;
+import com.beauty.myweb.source.exception.SourceException;
 import com.beauty.myweb.source.mapper.SourceMapper;
 import com.beauty.myweb.source.mapper.SourcePicMapper;
 import com.beauty.myweb.source.model.Source;
@@ -42,5 +43,17 @@ public class SourceService {
         }
 
         return sourceDetailDto;
+    }
+
+    public Source getDownloadMsg(String sourceNo){
+        if(StringUtils.isBlank(sourceNo)){
+            throw SourceException.PARAMS_ERROR;
+        }
+
+        if(UserInfo.getUser() == null){
+            throw SourceException.NOT_LOGIN_ERROR;
+        }
+
+        return sourceMapper.getSourceBySourceNo(sourceNo);
     }
 }
