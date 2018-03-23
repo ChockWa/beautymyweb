@@ -20,5 +20,5 @@ public interface SourceMapper extends BaseMapper<Source>{
 
     Page<Source> getSourcesPage();
 
-    Source getSourceDetail(String sourceNo);
+    Source getSourceBySourceNo(String sourceNo);
 }

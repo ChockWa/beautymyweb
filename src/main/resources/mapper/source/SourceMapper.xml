@@ -201,10 +201,12 @@
     <include refid="Base_Column_List"/>
     from sys_source
     where status = 1
+    order by id desc
   </select>
-  <select id="getSourceDetail" resultMap="BaseResultMap">
+  <select id="getSourceBySourceNo" resultType="com.beauty.myweb.source.model.Source">
     select
-    <include refid="Base_Column_List"/>
+    id, source_no sourceNo, source_name sourceName, type, category, code, description, space, person,
+    main_pic mainPic, status
     from sys_source
     where source_no = #{sourceNo}
     and status = 1

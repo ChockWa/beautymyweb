@@ -35,19 +35,10 @@ public class SourceService {
             return null;
         }
 
-        Source source = sourceMapper.getSourceDetail(sourceNo);
+        Source source = sourceMapper.getSourceBySourceNo(sourceNo);
         SourceDetailDto sourceDetailDto = BeanUtils.copyToNewBean(source,SourceDetailDto.class);
         if(sourceDetailDto != null){
             sourceDetailDto.setSourcePicList(sourcePicMapper.getPicsBySourceNo(sourceNo));
-        }
-
-        // 判断用户是否已经登录,没登录不显示下载信息
-        if(UserInfo.getUser() == null){
-            sourceDetailDto.setIsLogin(2);
-            sourceDetailDto.setDownUrl(null);
-            sourceDetailDto.setDownCode(null);
-        }else{
-            sourceDetailDto.setIsLogin(1);
         }
 
         return sourceDetailDto;
