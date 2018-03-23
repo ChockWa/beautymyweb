@@ -8,6 +8,7 @@ import com.beauty.myweb.core.model.Result;
 import com.beauty.myweb.source.service.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,5 +22,12 @@ public class SourceController {
     @SecurityAccess(true)
     public Result getSourcesPage(PageParam pageParam){
         return Result.SUCCESS().setData(sourceService.getSourcesPage(pageParam));
+    }
+
+    @RequestMapping("/getSourceDetail")
+    @MustLogin(false)
+    @SecurityAccess(true)
+    public Result getSourceDetail(@RequestParam("sourceNo")String sourceNo){
+        return Result.SUCCESS().setData(sourceService.getSourceDetail(sourceNo));
     }
 }

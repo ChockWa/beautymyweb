@@ -202,4 +202,11 @@
     from sys_source
     where status = 1
   </select>
+  <select id="getSourceDetail" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_source
+    where source_no = #{sourceNo}
+    and status = 1
+  </select>
 </mapper>
