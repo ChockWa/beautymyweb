@@ -2,6 +2,7 @@ package com.beauty.myweb.user;
 
 public enum VipTypeEnum {
 
+    NORMAL("normal","普通"),
     DAY("day","天"),
     MONTH("month","月"),
     QUARTER("quarter","季度"),
