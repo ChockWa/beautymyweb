@@ -56,4 +56,8 @@ public class SourceService {
 
         return sourceMapper.getSourceBySourceNo(sourceNo);
     }
+
+    public String getSource(){
+        return "source";
+    }
 }

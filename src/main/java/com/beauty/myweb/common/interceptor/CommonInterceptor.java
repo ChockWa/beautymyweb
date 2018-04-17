@@ -45,6 +45,8 @@ public class CommonInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+        // 解决跨域请求问题
+        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
         // 记录请求日志
 //        writeRequestLog(httpServletRequest);
     }
