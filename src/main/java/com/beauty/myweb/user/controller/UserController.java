@@ -5,6 +5,7 @@ import com.beauty.myweb.core.annotation.SecurityAccess;
 import com.beauty.myweb.core.model.Result;
 import com.beauty.myweb.user.dto.LoginDto;
 import com.beauty.myweb.user.dto.RegisterDto;
+import com.beauty.myweb.user.service.AuthService;
 import com.beauty.myweb.user.service.LoginService;
 import com.beauty.myweb.user.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class UserController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private AuthService authService;
 
     /**
      * 登录
@@ -42,6 +46,14 @@ public class UserController {
     @SecurityAccess(true)
     public Result register(RegisterDto registerDto){
         registerService.register(registerDto);
+        return Result.SUCCESS();
+    }
+
+    @RequestMapping(value = "/getAuth")
+    @MustLogin(false)
+    @SecurityAccess(false)
+    public Result getAuth(String code){
+        authService.getUserWXOpenId(code);
         return Result.SUCCESS();
     }
 }

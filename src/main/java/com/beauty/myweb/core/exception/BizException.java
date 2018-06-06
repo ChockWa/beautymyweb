@@ -7,10 +7,14 @@ import java.lang.reflect.Constructor;
 import java.text.MessageFormat;
 
 /**
+ * 9998开头
  * 通用业务异常基类
  */
 @Data
 public class BizException extends RuntimeException implements Serializable {
+
+    /** 参数{0}不能为空 */
+    public static final BizException COMMON_PARAMS_NOT_NULL = new BizException(99980001, "参数{0}不能为空");
 
     protected int code;
 

@@ -5,7 +5,6 @@ import com.beauty.myweb.common.model.PageParam;
 import com.beauty.myweb.core.annotation.MustLogin;
 import com.beauty.myweb.core.annotation.SecurityAccess;
 import com.beauty.myweb.core.model.Result;
-import com.beauty.myweb.source.exception.SourceException;
 import com.beauty.myweb.source.model.Source;
 import com.beauty.myweb.source.service.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +39,5 @@ public class SourceController {
 //        throw SourceException.PARAMS_ERROR;
         return Result.SUCCESS().setData("value",sourceService.getSource());
     }
+
 }
