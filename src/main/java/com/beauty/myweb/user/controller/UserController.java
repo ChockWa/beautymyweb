@@ -53,7 +53,6 @@ public class UserController {
     @MustLogin(false)
     @SecurityAccess(false)
     public Result getAuth(String code){
-        authService.getUserWXOpenId(code);
-        return Result.SUCCESS();
+        return Result.SUCCESS().setData("result",authService.getUserWXOpenId(code));
     }
 }

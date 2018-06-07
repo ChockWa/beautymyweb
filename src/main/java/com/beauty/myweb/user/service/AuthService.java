@@ -31,6 +31,6 @@ public class AuthService {
         params.put("grant_type", "authorization_code");
         String result = OKHttpUtil.httpGet(WX_LOGIN_AUTH_URL,params);
         System.out.println(result);
-        return null;
+        return result;
     }
 }
