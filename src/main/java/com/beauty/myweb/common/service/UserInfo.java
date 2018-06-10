@@ -21,7 +21,7 @@ public class UserInfo {
     }
 
     public static User getUser(){
-        return userInfo.get();
+        return userInfo.get() == null?new User():userInfo.get();
     }
 
 }

@@ -2,6 +2,7 @@ package com.beauty.myweb.source.controller;
 
 
 import com.beauty.myweb.common.model.PageParam;
+import com.beauty.myweb.common.service.UserInfo;
 import com.beauty.myweb.core.annotation.MustLogin;
 import com.beauty.myweb.core.annotation.SecurityAccess;
 import com.beauty.myweb.core.model.Result;
@@ -18,26 +19,18 @@ public class SourceController {
     @Autowired
     private SourceService sourceService;
 
-    @RequestMapping("/getSourcesPage")
+    @RequestMapping("/getSourcesWXPage")
     @MustLogin(false)
     @SecurityAccess(true)
-    public Result getSourcesPage(Source source, PageParam pageParam){
-        return Result.SUCCESS().setData(sourceService.getSourcesPage(source, pageParam));
+    public Result getSourcesWXPage(Source source, PageParam pageParam){
+        return Result.SUCCESS().setData(sourceService.getSourcesWXPage(source, pageParam));
     }
 
-    @RequestMapping("/getSourceDetail")
+    @RequestMapping("/getSourceWXDetail")
     @MustLogin(false)
     @SecurityAccess(true)
-    public Result getSourceDetail(@RequestParam("sourceNo")String sourceNo){
-        return Result.SUCCESS().setData(sourceService.getSourceDetail(sourceNo));
-    }
-
-    @RequestMapping("/getSource")
-    @MustLogin(false)
-    @SecurityAccess(false)
-    public Result getSource(String username){
-//        throw SourceException.PARAMS_ERROR;
-        return Result.SUCCESS().setData("value",sourceService.getSource());
+    public Result getSourceWXDetail(@RequestParam("sourceId")Long sourceId){
+        return Result.SUCCESS().setData(sourceService.getSourceDetailWX(UserInfo.getUser().getId(),sourceId));
     }
 
 }

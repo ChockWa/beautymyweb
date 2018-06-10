@@ -10,77 +10,36 @@ import java.util.Date;
  */
 @TableName("sys_source")
 public class Source {
-    /**
-     * id
-     */
+
     private Long id;
-
-    /**
-     * 资源编号
-     */
-    private String sourceNo;
-
-    /**
-     * 资源名称
-     */
-    private String sourceName;
-
-    /**
-     * 资源类型
-     */
-    private Integer type;
-
-    /**
-     * 资源种类
-     */
-    private Long category;
-
-    /**
-     * 资源编码
-     */
+    // 编码
     private String code;
-
-    /**
-     * 资源描述
-     */
-    private String description;
-
-    /**
-     * 资源大小
-     */
-    private String space;
-
-    /**
-     * 所属人
-     */
-    private String person;
-
-    /**
-     * 主图
-     */
-    private String mainPic;
-
-    /**
-     * 状态1-正常
-     */
+    // 类别1-图片2-视频
+    private Integer category;
+    // 图片类型
+    private Integer imageType;
+    // 视频类型
+    private Integer videoType;
+    // 标题
+    private String title;
+    // 子标题
+    private String subtitle;
+    // 人物名称
+    private String personName;
+    // 下载链接
+    private String downloadAddr;
+    // 下载码
+    private String downloadCode;
+    // 在线展示图片链接
+    private String imageUrls;
+    // 是否合法1-是2-否
+    private Integer isLegal;
+    // 大小
+    private Integer space;
+    // 状态
     private Integer status;
-
-    /**
-     * 下载地址
-     */
-    private String downUrl;
-
-    /**
-     * 下载码
-     */
-    private String downCode;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    private static final long serialVersionUID = 1L;
+    // 更新时间
+    private Date updateTime;
 
     public Long getId() {
         return id;
@@ -88,38 +47,6 @@ public class Source {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getSourceNo() {
-        return sourceNo;
-    }
-
-    public void setSourceNo(String sourceNo) {
-        this.sourceNo = sourceNo;
-    }
-
-    public String getSourceName() {
-        return sourceName;
-    }
-
-    public void setSourceName(String sourceName) {
-        this.sourceName = sourceName;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getCategory() {
-        return category;
-    }
-
-    public void setCategory(Long category) {
-        this.category = category;
     }
 
     public String getCode() {
@@ -130,36 +57,92 @@ public class Source {
         this.code = code;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getCategory() {
+        return category;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(Integer category) {
+        this.category = category;
     }
 
-    public String getSpace() {
+    public Integer getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(Integer imageType) {
+        this.imageType = imageType;
+    }
+
+    public Integer getVideoType() {
+        return videoType;
+    }
+
+    public void setVideoType(Integer videoType) {
+        this.videoType = videoType;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+
+    public String getDownloadAddr() {
+        return downloadAddr;
+    }
+
+    public void setDownloadAddr(String downloadAddr) {
+        this.downloadAddr = downloadAddr;
+    }
+
+    public String getDownloadCode() {
+        return downloadCode;
+    }
+
+    public void setDownloadCode(String downloadCode) {
+        this.downloadCode = downloadCode;
+    }
+
+    public String getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(String imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public Integer getIsLegal() {
+        return isLegal;
+    }
+
+    public void setIsLegal(Integer isLegal) {
+        this.isLegal = isLegal;
+    }
+
+    public Integer getSpace() {
         return space;
     }
 
-    public void setSpace(String space) {
+    public void setSpace(Integer space) {
         this.space = space;
-    }
-
-    public String getPerson() {
-        return person;
-    }
-
-    public void setPerson(String person) {
-        this.person = person;
-    }
-
-    public String getMainPic() {
-        return mainPic;
-    }
-
-    public void setMainPic(String mainPic) {
-        this.mainPic = mainPic;
     }
 
     public Integer getStatus() {
@@ -170,27 +153,11 @@ public class Source {
         this.status = status;
     }
 
-    public String getDownUrl() {
-        return downUrl;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setDownUrl(String downUrl) {
-        this.downUrl = downUrl;
-    }
-
-    public String getDownCode() {
-        return downCode;
-    }
-
-    public void setDownCode(String downCode) {
-        this.downCode = downCode;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
