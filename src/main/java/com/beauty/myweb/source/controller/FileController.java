@@ -30,7 +30,7 @@ public class FileController {
     public Result uploadFile(@RequestParam("file")MultipartFile file){
         if(file != null){
             try {
-                fileService.uploadFile("/images/001.jpg",file.getInputStream());
+                fileService.uploadFile(file.getOriginalFilename(),file.getInputStream());
             } catch (IOException e) {
                 e.printStackTrace();
             }
