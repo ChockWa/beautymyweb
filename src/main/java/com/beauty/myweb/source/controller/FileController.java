@@ -30,11 +30,18 @@ public class FileController {
     public Result uploadFile(@RequestParam("file")MultipartFile file){
         if(file != null){
             try {
-                fileService.uploadFile(file.getOriginalFilename(),file.getInputStream());
+                fileService.uploadFile("toutiao/20180620",file.getOriginalFilename(),file.getInputStream());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         return Result.SUCCESS();
+    }
+
+    @RequestMapping("/downloadFile")
+    @MustLogin(false)
+    @SecurityAccess(false)
+    public Result downloadFile(){
+        return Result.SUCCESS().setData("fileList",fileService.downloadFile("toutiao/20180620/"));
     }
 }

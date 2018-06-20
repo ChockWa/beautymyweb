@@ -1,22 +1,20 @@
 package com.beauty.myweb.source.service;
 
-import com.beauty.myweb.common.config.FtpConfigProperties;
-import com.beauty.myweb.core.utils.FtpUtil;
+import com.beauty.myweb.core.utils.FtpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.util.List;
 
 @Service
 public class FileService {
 
     @Autowired
-    private FtpConfigProperties fipConfig;
+    private FtpUtils ftpUtils;
 
-    public void uploadFile(String path,InputStream inputStream){
-        Boolean flag = FtpUtil.uploadFile(path, inputStream,fipConfig.getFtpAddress(),fipConfig.getFtpPort(),
-                fipConfig.getFtpName(),fipConfig.getFtpPassWord(),fipConfig.getFtpBasePath());
-        System.out.println(flag);
+    public void uploadFile(String path,String fileName, InputStream inputStream){
+        ftpUtils.uploadFile(path,fileName,inputStream);
         if(inputStream != null){
             try {
                 inputStream.close();
@@ -24,5 +22,10 @@ public class FileService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<String> downloadFile(String path){
+        List<String> fileList = ftpUtils.downloadFile(path);
+        return fileList;
     }
 }
